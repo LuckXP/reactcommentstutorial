@@ -39,12 +39,31 @@ var CommentList = React.createClass({
 });
 
 var CommentForm = React.createClass({
+	getInitialState: function() {
+		return {author: '', text: ''}
+	},
+	handleAuthorChange(e) {
+		this.setState({author: e.target.value});
+	},
+	handleTextChange(e) {
+		this.setState({author: e.target.value});
+	},
 	render: function() {
 		return (
-			<div className="commentForm">
-        		Hello, world! I am a CommentForm.
-      		</div>
-		)
+			<form className="commentForm">
+        		<input
+	        		type="text" 
+	        		placeholder="Your name"
+	        		value={this.state.author}
+	        		onChange={this.handleAuthorChange}/>
+      			<input
+	      			type="text" 
+	      			placeholder="Say something..."
+	      			value={this.state.author}
+      				onChange={this.handleTexChange}/>
+      			<input type="submit" value="Post"/>
+      		</form>
+		);
 	}
 });
 
